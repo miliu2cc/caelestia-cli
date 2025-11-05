@@ -25,7 +25,7 @@
 
     packages = forAllSystems (pkgs: rec {
       caelestia-cli = pkgs.callPackage ./default.nix {
-        rev = self.rev;
+        rev = self.rev or "unknown";
         caelestia-shell = inputs.caelestia-shell.packages.${pkgs.system}.default;
       };
       with-shell = caelestia-cli.override {withShell = true;};
